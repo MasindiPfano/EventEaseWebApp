@@ -1,0 +1,32 @@
+﻿@model EventEaseWebApp.Models.Venue
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Venue</h4>
+    <hr />
+    <dd class="row">
+        <dt class = "col-sm-2">
+            Venue Image
+        </dt>
+
+        if (!string.IsNullOrEmpty(Model.ImageUrl)){
+        <img src="Model.ImageUrl" alt=" Venue Image" width=" 200" height="200" style="object-fit:cover; border-radius:8px" />
+        }
+        else{
+        <span>No Image Available</span>
+        }
+        
+    </dd>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VenueID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
